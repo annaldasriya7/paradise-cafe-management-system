@@ -1,0 +1,21 @@
+{
+  "name": "paradise-cafe-fullstack",
+  "version": "1.0.0",
+  "description": "Paradise Cafe full stack project with React, Node, Express and MongoDB",
+  "main": "index.js",
+  "scripts": {
+    "frontend": "npm --prefix frontend run dev",
+    "backend": "npm --prefix backend run dev",
+    "install-frontend": "npm --prefix frontend install",
+    "install-backend": "npm --prefix backend install"
+  },
+  "keywords": [
+    "cafe",
+    "react",
+    "node",
+    "express",
+    "mongodb"
+  ],
+  "author": "Riya",
+  "license": "ISC"
+}
