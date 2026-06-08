@@ -18,7 +18,12 @@ app.get("/", (req, res) => {
 
 app.use("/api/menu", require("./routes/menuRoutes"));
 app.use("/api/orders", require("./routes/orderRoutes"));
-app.use("/api/feedback", require("./routes/feedbackRoutes"));
+
+try {
+  app.use("/api/feedback", require("./routes/feedbackRoutes"));
+} catch (error) {
+  console.log("Feedback routes not found, skipping feedback API");
+}
 
 const PORT = process.env.PORT || 5000;
 

@@ -11,7 +11,8 @@ const defaultMenuItems = [
     icon: "🍕",
     tag: "Chef Special",
     description:
-      "Sweet pineapple chunks paired with savory cheese and rich tomato sauce."
+      "Sweet pineapple chunks paired with savory cheese and rich tomato sauce.",
+    isAvailable: true
   },
   {
     name: "Margherita Pizza",
@@ -20,7 +21,8 @@ const defaultMenuItems = [
     icon: "🍕",
     tag: "Classic",
     description:
-      "Fresh mozzarella, basil, tomato sauce, and crispy golden crust."
+      "Fresh mozzarella, basil, tomato sauce, and crispy golden crust.",
+    isAvailable: true
   },
   {
     name: "Veggie Supreme Pizza",
@@ -29,7 +31,8 @@ const defaultMenuItems = [
     icon: "🍕",
     tag: "Popular",
     description:
-      "Loaded with capsicum, onion, olives, corn, tomato, and extra cheese."
+      "Loaded with capsicum, onion, olives, corn, tomato, and extra cheese.",
+    isAvailable: true
   },
   {
     name: "Cold Coffee",
@@ -38,7 +41,8 @@ const defaultMenuItems = [
     icon: "☕",
     tag: "Chilled",
     description:
-      "Creamy cold coffee blended with chocolate syrup and ice cream."
+      "Creamy cold coffee blended with chocolate syrup and ice cream.",
+    isAvailable: true
   },
   {
     name: "Cappuccino",
@@ -47,7 +51,8 @@ const defaultMenuItems = [
     icon: "🍵",
     tag: "Hot",
     description:
-      "Rich espresso topped with steamed milk foam and cocoa dust."
+      "Rich espresso topped with steamed milk foam and cocoa dust.",
+    isAvailable: true
   },
   {
     name: "Cheese Burger",
@@ -56,7 +61,8 @@ const defaultMenuItems = [
     icon: "🍔",
     tag: "Crispy",
     description:
-      "Soft bun stuffed with cheese patty, lettuce, onion, and house sauce."
+      "Soft bun stuffed with cheese patty, lettuce, onion, and house sauce.",
+    isAvailable: true
   },
   {
     name: "French Fries",
@@ -65,7 +71,8 @@ const defaultMenuItems = [
     icon: "🍟",
     tag: "Crunchy",
     description:
-      "Golden crispy potato fries served with spicy tomato dip."
+      "Golden crispy potato fries served with spicy tomato dip.",
+    isAvailable: true
   },
   {
     name: "Veg Sandwich",
@@ -74,7 +81,8 @@ const defaultMenuItems = [
     icon: "🥪",
     tag: "Fresh",
     description:
-      "Grilled sandwich with fresh vegetables, cheese, and mint chutney."
+      "Grilled sandwich with fresh vegetables, cheese, and mint chutney.",
+    isAvailable: true
   },
   {
     name: "Chocolate Cake",
@@ -83,7 +91,8 @@ const defaultMenuItems = [
     icon: "🍰",
     tag: "Sweet",
     description:
-      "Soft chocolate sponge layered with creamy chocolate frosting."
+      "Soft chocolate sponge layered with creamy chocolate frosting.",
+    isAvailable: true
   },
   {
     name: "Vanilla Ice Cream",
@@ -92,7 +101,8 @@ const defaultMenuItems = [
     icon: "🍨",
     tag: "Cool",
     description:
-      "Classic vanilla ice cream scoop with chocolate drizzle."
+      "Classic vanilla ice cream scoop with chocolate drizzle.",
+    isAvailable: true
   },
   {
     name: "KitKat Shake",
@@ -101,7 +111,8 @@ const defaultMenuItems = [
     icon: "🥤",
     tag: "New",
     description:
-      "Thick and creamy KitKat shake blended with chocolate, milk, ice cream, and crunchy KitKat pieces."
+      "Thick and creamy KitKat shake blended with chocolate, milk, ice cream, and crunchy KitKat pieces.",
+    isAvailable: true
   }
 ];
 
@@ -171,10 +182,11 @@ router.post("/", async (req, res) => {
       name,
       category,
       price,
-      icon,
-      tag,
+      icon: icon || "🍽️",
+      tag: tag || "Special",
       description,
-      isAvailable
+      isAvailable:
+        typeof isAvailable === "boolean" ? isAvailable : true
     });
 
     return res.status(201).json({
