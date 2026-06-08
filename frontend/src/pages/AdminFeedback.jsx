@@ -5,7 +5,7 @@ function AdminFeedback() {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const API_URL = "http://127.0.0.1:5000/api";
+  const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:5000/api";
 
   const goToHome = () => {
     window.location.href = "/";
